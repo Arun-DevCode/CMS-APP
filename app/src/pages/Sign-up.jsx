@@ -22,13 +22,16 @@ const SignUp = () => {
     const payload = { ...data };
     console.log(payload);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/sign-up", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
+      const res = await fetch(
+        "https://api-cms-wug3.onrender.com/api/auth/sign-up",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       // Data conversion
       const data = await res.json(); // JSON -> object

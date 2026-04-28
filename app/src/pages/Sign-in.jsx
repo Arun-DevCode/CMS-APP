@@ -20,13 +20,16 @@ const SignIn = () => {
   const onSubmit = async (formData) => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/sign-in", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const res = await fetch(
+        "https://api-cms-wug3.onrender.com/api/auth/sign-in",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       // Parse JSON response into a unique variable name 'result'
       const result = await res.json();

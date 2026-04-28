@@ -3,11 +3,14 @@ export async function getUserProfile() {
     const token = localStorage.getItem("accessToken");
     if (!token) throw new Error("failed to fetch token!");
 
-    const res = await fetch("http://localhost:5000/api/auth/get-profile", {
-      headers: {
-        authorization: `Bearer ${token}`,
+    const res = await fetch(
+      "https://api-cms-wug3.onrender.com/api/auth/get-profile",
+      {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
     // Parse JSON response into a unique variable name 'result'
     const result = await res.json();
 
