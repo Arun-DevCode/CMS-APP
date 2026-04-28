@@ -3,7 +3,7 @@ const db = require("mongoose");
 // Connection
 async function connectWithDB() {
   try {
-    const connection = await db.connect("mongodb://localhost:27017/cms-db");
+    const connection = await db.connect(process.env.MONGODB_URL);
     if (!connection) {
       throw new Error("failed to connect db!!");
     }
