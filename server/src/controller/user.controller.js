@@ -81,7 +81,7 @@ const getUserProfile = async (req, res) => {
       .json({ message: "User Profile fetched!", error: false, data: profile });
   } catch (error) {
     if (error) {
-      res.status(401).json({ error: true, message: error });
+      res.status(401).json({ error: true, message: error.message });
     }
   }
 };
